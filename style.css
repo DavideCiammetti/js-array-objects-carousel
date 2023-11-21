@@ -27,7 +27,7 @@ body{
     position: relative;
 }
 
-.item img {
+.img{
     width: 80%;
     height: 100%;
     object-fit: cover;
@@ -49,7 +49,19 @@ body{
     cursor: pointer;
     z-index: 999;
 }
-
+.description-container{
+    width: 400px;
+    position: absolute;
+    top: 80%;
+    text-align: end;
+    left: 300px;
+}
+.description{
+    word-wrap: break-word
+}
+.description-container h3,p{
+    color: white;
+}
 .next {
     bottom: 0;
 }

@@ -12,27 +12,27 @@ const rightContainer = document.querySelector('.right-container');
 // immagini array foto grande
 const imgArray = [
     {
-        'url':'01.jpg',
+        'url':'../img/01.jpg',
         'titolo': 'Mountain',
         'descrizione': 'Bellissima alba in un paesaggio montano, ammirata da un pescatore alla fine del turno di lavoro'
     },
     {
-        'url':'02.jpg',
+        'url':'../img/02.jpg',
         'titolo': 'Country',
         'descrizione':'Paesino del nord della svizzera, circondato da natura incontaminata'
     },
     {
-        'url':'03.jpg',
+        'url':'../img/03.jpg',
         'titolo': 'London',
         'descrizione':'Il meraviglioso big-bang della città di Londra in una calda notte estiva'
     },
     {
-        'url':'04.jpg',
+        'url':'../img/04.jpg',
         'titolo': 'Bruxlelles',
         'descrizione':'Uno dei più importanti palazzi nella città di Bruxelles'
     },
     {
-        'url':'05.jpg',
+        'url':'../img/05.jpg',
         'titolo': 'Maldive',
         'descrizione':'Vista panoramica di una delle più belle spiagge al mondo, le Maldive'
     }
@@ -46,17 +46,28 @@ const tastoBasso = document.querySelector('.next');
 const items = document.querySelector('.items');
 // variabile di incremento per cambiare immagini 
 let actualImg = 0;
+// classe che prende il template in html
+const template = document.getElementById('template');
+console.log(template);
 
 for(let i= 0; i < imgArray.length; i++){
+    const imgArr = imgArray[i];
 
-   // creo l'elemento html <div>
+    // creo l'elemento html <div>
     const item = document.createElement('div');
     // aggiungo la classe item a div
     item.classList.add('item');
-    // aggiungo l'immagine a div
-    item.innerHTML += `<img src="../img/${imgArray[i]}" alt="img.1" />`;
 
-    if(i === actualImg){
+
+    const content = template.content.cloneNode(true);
+    console.log(content);
+    content.querySelector('.img').src = imgArr.url;
+    content.querySelector('.description-container .title').innerText = imgArr.titolo;
+    content.querySelector('.description-container .description').innerText = imgArr.descrizione;
+
+    item.append(content);
+
+    if(i <= actualImg){
         item.classList.add('active');
     }
 
@@ -71,7 +82,7 @@ for(let i= 0; i < rightArray.length; i++){
      // aggiungo la classe right-box a div
      rightBox.classList.add('right-box', 'gray-scale');
      // aggiungo l'immagine a div
-     rightBox.innerHTML += `<img src="../img/${imgArray[i]}" alt="img.1" />`;
+     rightBox.innerHTML += `<img src="../img/${rightArray[i]}" alt="img.1" />`;
     
      rightContainer.append(rightBox);
  }
@@ -83,6 +94,9 @@ console.log(allItem);
 // creo evento per premere pulsante in alto
 tastoAlto.addEventListener('click', function() {
     console.log(actualImg);
+    if(actualImg === 0){
+        allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
+    }
     if(actualImg < imgArray.length -1){
         console.log(`array ${imgArray.length}`);
 
