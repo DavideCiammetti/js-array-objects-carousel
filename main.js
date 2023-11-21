@@ -87,16 +87,58 @@ for(let i= 0; i < rightArray.length; i++){
      rightContainer.append(rightBox);
  }
 
-const allRightBox = document.querySelectorAll('.right-box');
-const allItem = document.querySelectorAll('.item');
-console.log(allItem);
+ const allRightBox = document.querySelectorAll('.right-box');
+ const allItem = document.querySelectorAll('.item');
+ console.log(allItem);
+ 
+ function switchOn(){
+     if(actualImg < imgArray.length - 1){
+         console.log(`array ${imgArray.length}`);
+ 
+         if(actualImg === 0){
+ 
+             allRightBox[actualImg].classList.remove('gray-scale');
+         }
+ 
+         console.log(actualImg);
+         allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
+         // rimuovi classe active per vedere foto
+         allItem[actualImg].classList.remove('active');
+         allRightBox[actualImg].classList.add('gray-scale');     //add gray-scale
+         actualImg++;
+         // aggiungi classe active per vedere foto
+         allItem[actualImg].classList.add('active');
+ 
+         allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
+ 
+     }else if(actualImg <= 4){
+         allRightBox[actualImg].classList.add('gray-scale');     //add gray-scale
+          // rimuovi classe active per vedere foto
+         allItem[actualImg].classList.remove('active');
+         // riporo a 0 la variabile da incrementare  
+         actualImg = 0;
+          // riporo a 0 l'array
+         imgArray.length = 5;
+         // aggiungi classe active per vedere foto
+         allItem[actualImg].classList.add('active');
+         allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
+     }
+ 
+ }
+ const buttonStop = document.querySelector('.stop');
+ const buttonStart = document.querySelector('.start');
+ let scorrimento;
+ buttonStart.addEventListener('click', function(){
+      scorrimento = setInterval(switchOn, 3000);
+ });
+ 
+ buttonStop.addEventListener('click', function(){
+     clearInterval(scorrimento);
+ });
+//  andare avanti e dietro con pulsanti -------------------------------------------------------------------------------
 
-// creo evento per premere pulsante in alto
 tastoAlto.addEventListener('click', function() {
     console.log(actualImg);
-    if(actualImg === 0){
-        allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
-    }
     if(actualImg < imgArray.length -1){
         console.log(`array ${imgArray.length}`);
 
@@ -122,10 +164,9 @@ tastoAlto.addEventListener('click', function() {
         allItem[actualImg].classList.add('active');
         allRightBox[actualImg].classList.remove('gray-scale');  //remove gray-scale
     }
-     
+    clearInterval(scorrimento);
 });
 
-// creo evento per premere pulsante in basso
 tastoBasso.addEventListener('click', function() {
     console.log(`immagine attuale ${imgArray.actualImg}`);
     if(actualImg > 0){
@@ -151,5 +192,7 @@ tastoBasso.addEventListener('click', function() {
         allItem[actualImg].classList.add('active');
         allRightBox[actualImg].classList.remove('gray-scale');  //add gray-scale
     }
-
+    clearInterval(scorrimento);
 });
+ 
+ 

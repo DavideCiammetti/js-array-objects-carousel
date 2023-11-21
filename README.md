@@ -24,3 +24,8 @@ for(let i= 0; i < imgArray.length; i++){
     items.append(item);
 }
 io ho questo ci clo for per creare gli elementi all'interno della mia pagina ma vorrei fare diversamente usande il template tag in html 
+
+BONUS 2:
+Aggiungere funzionalità di autoplay: dopo un certo periodo di tempo (3 secondi) l’immagine attiva dovrà cambiare alla successiva.
+BONUS 3:
+Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.

@@ -6,6 +6,7 @@
 body{
     background-color: rgb(195, 122, 122);
 }
+/* container principale */
 .container {
     width: 900px;
     height: 100vh;
@@ -13,8 +14,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
-
+/* contenitore per foto */
 .items {
     position: relative;
     width: 900px;
@@ -26,17 +28,31 @@ body{
     display: none;
     position: relative;
 }
-
+/* active per far riapparire le foto */
+.item.active {
+    display: block;
+}
+/* descrzione e foto */
+.description-container{
+    width: 400px;
+    position: absolute;
+    top: 80%;
+    text-align: end;
+    left: 300px;
+}
 .img{
     width: 80%;
     height: 100%;
     object-fit: cover;
 }
-
-.item.active {
-    display: block;
+.description{
+    word-wrap: break-word
 }
-
+.description-container h3,p{
+    color: white;
+}
+/* descrzione e foto */
+/* frecce destra */
 .prev, .next {
     width: 20px;
     height: 20px;
@@ -48,19 +64,6 @@ body{
     transform: translate(-50%);
     cursor: pointer;
     z-index: 999;
-}
-.description-container{
-    width: 400px;
-    position: absolute;
-    top: 80%;
-    text-align: end;
-    left: 300px;
-}
-.description{
-    word-wrap: break-word
-}
-.description-container h3,p{
-    color: white;
 }
 .next {
     bottom: 0;
@@ -93,19 +96,31 @@ body{
     left: 50%;
     transform: translate(-50%) rotate(135deg);
 }
-
+/* frecce destra */
+/* button start e stop */
+.button{
+    margin-top: 20px;
+}
+.button .start,
+.stop{
+    padding: 10px 15px;
+    margin: 5px;
+}
+/* button start e stop */
+/* contenitore img destra */
 .right-container{
     width: 20%;
     height: 400px;
     position: absolute;
     right: 0;
 }
+/* immagini destra */
 .right-box img{
     width: 100%;
     height: 80px;
     display: block;
 }
-
+/* immagini di destra grige */
 .gray-scale{
     filter: grayscale(1);
 }
