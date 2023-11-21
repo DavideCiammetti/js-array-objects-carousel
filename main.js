@@ -10,7 +10,33 @@
 const rightContainer = document.querySelector('.right-container');  
 
 // immagini array foto grande
-const imgArray = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
+const imgArray = [
+    {
+        'url':'01.jpg',
+        'titolo': 'Mountain',
+        'descrizione': 'Bellissima alba in un paesaggio montano, ammirata da un pescatore alla fine del turno di lavoro'
+    },
+    {
+        'url':'02.jpg',
+        'titolo': 'Country',
+        'descrizione':'Paesino del nord della svizzera, circondato da natura incontaminata'
+    },
+    {
+        'url':'03.jpg',
+        'titolo': 'London',
+        'descrizione':'Il meraviglioso big-bang della città di Londra in una calda notte estiva'
+    },
+    {
+        'url':'04.jpg',
+        'titolo': 'Bruxlelles',
+        'descrizione':'Uno dei più importanti palazzi nella città di Bruxelles'
+    },
+    {
+        'url':'05.jpg',
+        'titolo': 'Maldive',
+        'descrizione':'Vista panoramica di una delle più belle spiagge al mondo, le Maldive'
+    }
+];
 // immagini array foto lato destro
 const rightArray = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
 // frecce per cambiare foto
