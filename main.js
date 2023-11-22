@@ -12,27 +12,27 @@ const rightContainer = document.querySelector('.right-container');
 // immagini array foto grande
 const imgArray = [
     {
-        'url':'../img/01.jpg',
+        'url':'./img/01.jpg',
         'titolo': 'Mountain',
         'descrizione': 'Bellissima alba in un paesaggio montano, ammirata da un pescatore alla fine del turno di lavoro'
     },
     {
-        'url':'../img/02.jpg',
+        'url':'./img/02.jpg',
         'titolo': 'Country',
         'descrizione':'Paesino del nord della svizzera, circondato da natura incontaminata'
     },
     {
-        'url':'../img/03.jpg',
+        'url':'./img/03.jpg',
         'titolo': 'London',
         'descrizione':'Il meraviglioso big-bang della città di Londra in una calda notte estiva'
     },
     {
-        'url':'../img/04.jpg',
+        'url':'./img/04.jpg',
         'titolo': 'Bruxlelles',
         'descrizione':'Uno dei più importanti palazzi nella città di Bruxelles'
     },
     {
-        'url':'../img/05.jpg',
+        'url':'./img/05.jpg',
         'titolo': 'Maldive',
         'descrizione':'Vista panoramica di una delle più belle spiagge al mondo, le Maldive'
     }
@@ -82,7 +82,7 @@ for(let i= 0; i < rightArray.length; i++){
      // aggiungo la classe right-box a div
      rightBox.classList.add('right-box', 'gray-scale');
      // aggiungo l'immagine a div
-     rightBox.innerHTML += `<img src="../img/${rightArray[i]}" alt="img.1" />`;
+     rightBox.innerHTML += `<img src="./img/${rightArray[i]}" alt="img.1" />`;
     
      rightContainer.append(rightBox);
  }
